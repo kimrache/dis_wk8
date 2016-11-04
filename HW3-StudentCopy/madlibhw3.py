@@ -11,5 +11,6 @@
 # 1) Print the new text
 print("START*******")
 
+print ("testing git")
 
 print("\n\nEND*******")
