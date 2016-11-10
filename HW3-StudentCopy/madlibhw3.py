@@ -11,8 +11,6 @@
 # 1) Print the new text
 
 import nltk # requires some downloading/installing dependencies to use all its features; numpy is especially tricky to install
-nltk.download()
-nltk.corpus.gutenberg.fileids()
 import random
 from nltk.book import *
 
