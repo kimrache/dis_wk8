@@ -11,29 +11,19 @@
 # 1) Print the new text
 
 import nltk # requires some downloading/installing dependencies to use all its features; numpy is especially tricky to install
+nltk.download()
+nltk.corpus.gutenberg.fileids()
 import random
+from nltk.book import *
 
-# import nltk
-nltk.download('punkt')
-
-from nltk import word_tokenize,sent_tokenize
 
 print("START*******")
-#debug = False #True
-
-# get file from user to make mad lib out of
-# if debug:
-# 	print ("Getting information from file madlib_test.txt...\n")
-# fname = "madlibtest2.txt" # need a file with this name in directory
-
-f = open(fname, 'r')
-para = f.read()
+para = text2[:150]
+print(para)
 tokens = nltk.word_tokenize(para)
-print("TOKENS")
-print(tokens)
+
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
-print("TAGGED TOKENS")
-print(tagged_tokens)
+
 if debug:
 	print ("First few tagged tokens are:")
 	for tup in tagged_tokens[:5]:
