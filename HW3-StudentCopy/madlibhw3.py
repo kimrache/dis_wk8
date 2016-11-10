@@ -15,20 +15,15 @@ import random
 from nltk.book import *
 
 
+
 print("START*******")
-para = text2[:150]
-print(para)
-tokens = nltk.word_tokenize(para)
+tokens = text2[:150]
 
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 
-if debug:
-	print ("First few tagged tokens are:")
-	for tup in tagged_tokens[:5]:
-		print (tup)
 
 tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective"}
-substitution_probabilities = {"NN":.1,"NNS":.2,"VB":.25,"JJ":.25}
+substitution_probabilities = {"NN":.15,"NNS":.1,"VB":.1,"JJ":.1}
 
 def spaced(word):
 	if word in [",", ".", "?", "!", ":"]:
@@ -42,9 +37,9 @@ final_words = []
 for (word, tag) in tagged_tokens:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
-	else:
-		new_word = input("Please enter %s:\n" % (tagmap[tag]))
-		final_words.append(spaced(new_word))
+	# else:
+	# 	new_word = input("Please enter %s:\n" % (tagmap[tag]))
+	# 	final_words.append(spaced(new_word))
 
 print ("".join(final_words))
 
