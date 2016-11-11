@@ -14,11 +14,8 @@ import nltk # requires some downloading/installing dependencies to use all its f
 import random
 from nltk.book import *
 
-
-
 print("START*******")
 tokens = text2[:150]
-
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 
 tagmap = {"NN":"a noun","NNS":"a plural noun","NNP":"a proper noun","VB":"a verb","JJ":"an adjective"}
