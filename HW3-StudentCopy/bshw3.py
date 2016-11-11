@@ -19,6 +19,7 @@ r = requests.get(url)
 soup = BeautifulSoup(r.text, "lxml")
 picture = 'my_pic.jpg'
 f = open('index.html', 'w')
+
 pretty_soup = soup.prettify()
 pretty_soup = pretty_soup.replace('student', 'AMAZING student')
 pretty_soup = pretty_soup.replace('https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg', picture)
