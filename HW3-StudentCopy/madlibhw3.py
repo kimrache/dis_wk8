@@ -10,14 +10,19 @@
 # 1) Print the orginal text (150 tokens)
 # 1) Print the new text
 
-import nltk # requires some downloading/installing dependencies to use all its features; numpy is especially tricky to install
+import nltk
 import random
 from nltk.book import *
 
 print("START*******")
-tokens = text2[:150]
-tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
 
+# getting the first 150 tokens of text2
+tokens = text2[:150]
+
+# gives us a tagged list of tuples
+tagged_tokens = nltk.pos_tag(tokens) 
+
+# picking 5 parts of speech and choosing probabilities
 tagmap = {"NN":"a noun","NNS":"a plural noun","NNP":"a proper noun","VB":"a verb","JJ":"an adjective"}
 substitution_probabilities = {"NN":.15,"NNS":.1,"NNP":.1,"VB":.1,"JJ":.1}
 
@@ -29,6 +34,7 @@ def spaced(word):
 
 final_words = []
 
+# using the set probabilities, loop through the 150 tokens and replace with user input
 for (word, tag) in tagged_tokens:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
@@ -36,6 +42,7 @@ for (word, tag) in tagged_tokens:
 		new_word = input("Please enter %s:\n" % (tagmap[tag]))
 		final_words.append(spaced(new_word))
 
+# deliverables
 print("\nORIGINAL TEXT:")
 print(tokens)
 

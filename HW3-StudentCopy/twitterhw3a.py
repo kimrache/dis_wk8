@@ -5,7 +5,6 @@
 # You will demo this live for grading.
 
 import tweepy
-import nltk
 
 # Unique code from Twitter
 access_token = "796822723083325440-CObpW1SgnHGahZofbWPehr477q4zLnD"
@@ -17,9 +16,11 @@ consumer_secret = "3bMOGDoQDrqDHzYW0ycO3O7YypOFIkmCkpHIVreqJCtPpaXZtl"
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
 
-api = tweepy.API(auth)
 #Now we can Create Tweets, Delete Tweets, and Find Twitter Users
+api = tweepy.API(auth)
 
+# image file
 filename = "corgi.jpg"
 
+# posting tweet with image and hashtags
 api.update_with_media(filename, status="#UMSI-206 #Proj3")

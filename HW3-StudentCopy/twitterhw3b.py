@@ -20,17 +20,18 @@ consumer_secret = "3bMOGDoQDrqDHzYW0ycO3O7YypOFIkmCkpHIVreqJCtPpaXZtl"
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
 
-api = tweepy.API(auth)
 #Now we can Create Tweets, Delete Tweets, and Find Twitter Users
+api = tweepy.API(auth)
 
 search = input("Enter a term to search for: ")
 public_tweets = api.search(search)
 
-
+# variables to find average subjectivity and polarity
 total_subjectivity = 0;
 total_polarity = 0;
 total_ct = 0;
 
+# loop through tweets, print, and add to total counts
 for tweet in public_tweets:
 	print(tweet.text)
 	analysis = TextBlob(tweet.text)
@@ -38,5 +39,6 @@ for tweet in public_tweets:
 	total_subjectivity += analysis.sentiment.subjectivity
 	total_ct += 1;
 
+# printing average subjectivity and polarity
 print("Average subjectivity is", total_subjectivity / total_ct)
 print("Average polarity is", total_polarity / total_ct)
