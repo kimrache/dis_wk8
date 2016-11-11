@@ -14,12 +14,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.si.umich.edu/programs/bachelor-science-information/bsi-admissions"
+url = "http://collemc.people.si.umich.edu/data/bshw3StarterFile.html"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "lxml")
-
+picture = 'my_pic.jpg'
 f = open('index.html', 'w')
 pretty_soup = soup.prettify()
 pretty_soup = pretty_soup.replace('student', 'AMAZING student')
-
+pretty_soup = pretty_soup.replace('https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg', picture)
+pretty_soup = pretty_soup.replace('logo2.png', 'media\logo.png')
 f.write(pretty_soup)
